@@ -1,0 +1,15 @@
+void rotateArr(vector<int>& arr, int d) {
+        // code here
+        int n = arr.size();
+        d %= n ;
+        reverse(arr.begin(), arr.begin() + d); 
+        reverse(arr.begin()+d, arr.end());
+        reverse(arr.begin(), arr.end()); 
+        
+    }
+logic:
+1 do the mod operation, so it doesnt do unnessary cycles for d number > than n( ex: d is 5, n is 4, instead of doing 2 loops, we take mode 5 =4, which is 1)
+2 reverse function. syntax: reverse(begin.arr(), end.arr())
+  use reverse function, take the beginning of the array up to d positions. if arr[] ={ 1 2 3 5} d=2, we take only up to 1 index, which is 2. swap(1,2)
+  apple the same logic, but now start where we stopped at, from arr.begin() +d up to end.arr[]. if arr[] ={ 1 2 3 5} d=2, swap(2, 5)
+3 reverse fully the array. 
