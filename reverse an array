@@ -1,0 +1,14 @@
+void reverseArray(vector<int> &arr) {
+        int left = 0;  
+        int right =arr.size() -1 ; 
+        while (left < right){
+            swap(arr[left],arr[right]);
+            left++;
+            right--; 
+        }
+    }
+the logic behind is:
+make ints left and right. set left to index 0, the start of arr, and set right to arr.size(i)-1 , so it takes the last element of the array.
+have a while loop, with cond of (left < right)
+while left is lesser than right, swap first elem and the last elem of the string.
+left++, increment, so we go to center from left, i--, decrement, so we go to center from right 
