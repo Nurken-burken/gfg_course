@@ -1,0 +1,39 @@
+#include <stdio.h>  // include libraries 
+#include <stdlib.h> // include libraries 
+ void swap( int *a, int *b){ // swap function, whicj takes pointers of a and b
+    int temp = *a;
+     *a=*b;
+     *b = temp; 
+    }
+     void reverse(int arr[], int start, int end){ reverse func which takes arr[], int start and int end
+         while(start < end){
+             swap(&arr[start], &arr[end]); 
+             start++;
+             end--; 
+         }
+     }
+// Function to find the next permutation
+void nextPermutation(int arr[], int n) {
+    // code here
+   
+    int pivot = -1;  // set pivot at =-1, this assumes no valid pivot exists initially.
+    for( int i = n-2; i>=0; i--){ int i = n-2: this is so we can have i+1, even the last one
+        if(arr[i]<arr[i+1]){ check it agains the +1 index
+            pivot = i; set pivot 
+            break; exit the loop
+        }
+    }
+    if(pivot == -1){ // if pivot is still invalid 
+        reverse(arr,0,n-1); reverse an array
+        return;
+    }
+    
+    for(int i = n-1; i> pivot; i--){ now i = n-1, bcus we found pivot 
+        if(arr[i]>arr[pivot]){ if the arri is > pivot, swap the values
+            swap(&arr[i], &arr[pivot]); 
+            break;
+        }
+    }
+    
+    reverse(arr, pivot + 1, n-1); reverse an array 
+}
