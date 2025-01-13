@@ -1,0 +1,28 @@
+    int maximumProfit(vector<int> &prices) {
+        // code here
+        int n = prices.size(); 
+        int Min = prices[0]; initialize at the first elem of the arr; 
+        int Max = prices[0];initialize at the first elem of the arr; 
+        int res = 0; 
+        
+        int i= 0; 
+        while( i< n-1){ have a while, up intil  i< n-1, so we dont have an issue when on the last element, we look for +1. 
+            
+        while( i < n-1 && prices[i] >=prices[i+1]) {i++;}    have inside loop to search for min and max
+        Min = prices[i]; 
+        while( i < n-1 && prices[i] <=prices[i+1]) {i++;}   
+        Max = prices[i]; 
+        res = res + (Max - Min);
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        return res;
+        
+        
+    }
