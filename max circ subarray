@@ -1,0 +1,22 @@
+ int circularSubarraySum(vector<int> &arr) {
+    int totalSum = 0;  // total sum of the array 
+    int currMaxSum = 0, currMinSum = 0; // curr max and min sums to track the maximum and minimu subarray 
+    int maxSum = arr[0], minSum = arr[0]; // to initialise the variable, it is not = 0, because if there negative numbers the sum will be zero. 
+    
+    for( int i = 0 ; i < arr.size(); i++){
+        currMaxSum = max( currMaxSum + arr[i], arr[i]); // kadans algorithm, checks whether it is better to keep continuing the current subarray currMaxSum + arr[i] or starting new subaaray is better arr[i], if adding arr[i] makes the subarray smaller, just take the arr[i]
+        
+        maxSum = max (maxSum, currMaxSum); keeps the track of the largest subarray so far. it is only updated when the currMaxSum is updated. 
+        
+        currMinSum = min( currMinSum + arr[i], arr[i]); same principle. is it better to keep the continuing current subarray or start a new one. 
+        minSum = min(currMinSum,minSum ); 
+        totalSum = totalSum + arr[i]; // total sum 
+        
+    }
+    
+        int normalSum = maxSum;
+        int circSum = totalSum - minSum; 
+        if( minSum == totalSum)
+        return normalSum;
+        return max(normalSum, circSum);
+    }
